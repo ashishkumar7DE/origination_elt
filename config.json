@@ -1,0 +1,12 @@
+{
+    "password": "x2KGptnrZjbQAUis",
+    "user": "frictionless-ashish",
+    "host": "dev-origination-shard-00-00.ba7li.mongodb.net",
+    "port": "27017",
+    "database": "admin",
+    "replica_set": "atlas-f6gbhi-shard-0",
+    "ssl": true,
+    "verify_mode": false,
+    "selected": true,
+    "replication-method": "FULL_TABLE"
+  }
