@@ -1,0 +1,57 @@
+version: 1
+default_environment: dev
+project_id: aef1ce76-2e54-4415-83a2-e61128d81b84
+plugins:
+  extractors:
+  - name: tap-mongodb
+    variant: singer-io
+    pip_url: tap-mongodb
+    config:
+      user: frictionless-ashish
+      host: dev-origination-shard-00-00.ba7li.mongodb.net
+      database: koalas-applications-test
+      replica_set: atlas-f6gbhi-shard-0
+      port: 27017
+      ssl: true
+      metadata:
+        'koalas-applications-dev.*':
+          replication-method: FULL_TABLE
+  loaders:
+  - name: target-snowflake
+    variant: transferwise
+    pip_url: pipelinewise-target-snowflake
+    config:
+      account: ou40841.west-europe.azure
+      dbname: ANALYSIS
+      default_target_schema: MELTANO_ASHISH
+      file_format: ANALYSIS.MELTANO_ASHISH.FILE_FORMAT_CSV
+      role: DBT_DEVELOPER
+      user: ASHISH_DEV
+      warehouse: DEV_TEST_WH
+schedules:
+- name: mongodb-to-snowflake
+  extractor: tap-mongodb
+  loader: target-snowflake
+  transform: skip
+  interval: '@once'
+  start_date: 2022-04-28 06:11:32.469195
+environments:
+- name: dev
+  config:
+    plugins:
+      extractors:
+      - name: tap-mongodb
+        config:
+          verify_mode: true   
+        select:
+        - 'koalas-applications-dev.*'
+        metadata:
+          'koalas-applications-dev.*':
+            replication-method: FULL_TABLE
+          some_entity_id:
+            replication-method: FULL_TABLE
+        selected:
+          'true':
+            replication-method: FULL_TABLE
+- name: staging
+- name: prod

@@ -1,0 +1,212 @@
+{
+  "streams": [
+    {
+      "table_name": "applications",
+      "stream": "applications",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "koalas-applications-test",
+            "row-count": 1,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ],
+            "selected": false
+          }
+        }
+      ],
+      "tap_stream_id": "koalas-applications-test-applications",
+      "schema": {
+        "type": "object"
+      },
+      "selected": false
+    },
+    {
+      "table_name": "hometrackbankvaluations",
+      "stream": "hometrackbankvaluations",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "koalas-applications-dev",
+            "row-count": 43,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ],
+            "selected": false
+          }
+        }
+      ],
+      "tap_stream_id": "koalas-applications-dev-hometrackbankvaluations",
+      "schema": {
+        "type": "object"
+      },
+      "selected": false
+    },
+    {
+      "table_name": "products",
+      "stream": "products",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "koalas-applications-dev",
+            "row-count": 6,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ],
+            "selected": false
+          }
+        }
+      ],
+      "tap_stream_id": "koalas-applications-dev-products",
+      "schema": {
+        "type": "object"
+      },
+      "selected": false
+    },
+    {
+      "table_name": "decisions",
+      "stream": "decisions",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "koalas-applications-dev",
+            "row-count": 116,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ],
+            "selected": false
+          }
+        }
+      ],
+      "tap_stream_id": "koalas-applications-dev-decisions",
+      "schema": {
+        "type": "object"
+      },
+      "selected": false
+    },
+    {
+      "table_name": "submissions",
+      "stream": "submissions",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "koalas-applications-dev",
+            "row-count": 153,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ],
+            "selected": false
+          }
+        }
+      ],
+      "tap_stream_id": "koalas-applications-dev-submissions",
+      "schema": {
+        "type": "object"
+      },
+      "selected": false
+    },
+    {
+      "table_name": "hometrackbrokervaluations",
+      "stream": "hometrackbrokervaluations",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "koalas-applications-dev",
+            "row-count": 17,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ],
+            "selected": false
+          }
+        }
+      ],
+      "tap_stream_id": "koalas-applications-dev-hometrackbrokervaluations",
+      "schema": {
+        "type": "object"
+      },
+      "selected": false
+    },
+    {
+      "table_name": "applications",
+      "stream": "applications",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "koalas-applications-dev",
+            "row-count": 84,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ],
+            "selected": false
+          }
+        }
+      ],
+      "tap_stream_id": "koalas-applications-dev-applications",
+      "schema": {
+        "type": "object"
+      },
+      "selected": false
+    },
+    {
+      "table_name": "quotations",
+      "stream": "quotations",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "koalas-applications-dev",
+            "row-count": 0,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ],
+            "selected": false
+          }
+        }
+      ],
+      "tap_stream_id": "koalas-applications-dev-quotations",
+      "schema": {
+        "type": "object"
+      },
+      "selected": false
+    }
+  ]
+}
