@@ -1,40 +1,33 @@
 version: 1
 default_environment: dev
-project_id: aef1ce76-2e54-4415-83a2-e61128d81b84
+project_id: 0df72b50-ba8a-4169-884b-bafd34832785
 plugins:
   extractors:
   - name: tap-mongodb
     variant: singer-io
     pip_url: tap-mongodb
     config:
-      user: frictionless-ashish
       host: dev-origination-shard-00-00.ba7li.mongodb.net
-      database: koalas-applications-test
-      replica_set: atlas-f6gbhi-shard-0
       port: 27017
-      ssl: true
-      metadata:
-        'koalas-applications-dev.*':
-          replication-method: FULL_TABLE
+      user: frictionless-ashish
+      database: admin
+      replica_set: atlas-f6gbhi-shard-0
   loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
+    config:
+      do_timestamp_file: true
   - name: target-snowflake
     variant: transferwise
     pip_url: pipelinewise-target-snowflake
-    config:
-      account: ou40841.west-europe.azure
-      dbname: ANALYSIS
-      default_target_schema: MELTANO_ASHISH
-      file_format: ANALYSIS.MELTANO_ASHISH.FILE_FORMAT_CSV
-      role: DBT_DEVELOPER
-      user: ASHISH_DEV
-      warehouse: DEV_TEST_WH
 schedules:
-- name: mongodb-to-snowflake
+- name: mongodb-to-jsonl
   extractor: tap-mongodb
-  loader: target-snowflake
+  loader: target-jsonl
   transform: skip
   interval: '@once'
-  start_date: 2022-04-28 06:11:32.469195
+  start_date: 2022-04-30 09:55:11.751603
 environments:
 - name: dev
   config:
@@ -42,16 +35,32 @@ environments:
       extractors:
       - name: tap-mongodb
         config:
-          verify_mode: true   
-        select:
-        - 'koalas-applications-dev.*'
+          ssl: true
+          filter_schemas: public
+          default_replication_method: FULL_TABLE
         metadata:
-          'koalas-applications-dev.*':
+          '*':
             replication-method: FULL_TABLE
-          some_entity_id:
-            replication-method: FULL_TABLE
-        selected:
-          'true':
-            replication-method: FULL_TABLE
+        select:
+        - koalas-applications-dev-hometrackbrokervaluations
+        - koalas-applications-dev-submissions
+    
+      loaders:
+      - name: target-jsonl
+        config:
+          destination_path: origination_elt/output
+      - name: target-snowflake
+        config:
+          account: ou40841.west-europe.azure
+          dbname: ANALYSIS
+          user: ASHISH_DEV
+          warehouse: DEV_TEST_WH
+          file_format: ANALYSIS.MELTANO_ASHISH.FILE_FORMAT_CSV
+          role: DBT_DEVELOPER
+          default_target_schema: MELTANO_ASHISH
+          add_metadata_columns: false
+          logging_level: DEBUG
+          batch_size_rows: 1000000
+          primary_key_required: false
 - name: staging
 - name: prod
