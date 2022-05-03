@@ -1,6 +1,6 @@
 {
-    "password": "x2KGptnrZjbQAUis",
-    "user": "frictionless-ashish",
+    "password": "<password>",
+    "user": "<username>",
     "host": "dev-origination-shard-00-00.ba7li.mongodb.net",
     "port": "27017",
     "database": "admin",
